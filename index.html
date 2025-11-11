@@ -1,76 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💌 To [Their Name]</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>💖 FOR MY WIFE RANIYA 💖</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap');
-
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle at top left, #ffdde1, #ee9ca7);
-      font-family: 'Montserrat', sans-serif;
-      color: #3a3a3a;
-      overflow: hidden;
-    }
-
-    .container {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 3rem;
-      border-radius: 20px;
-      max-width: 600px;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffc1cc, #ff9eb5, #ffe6f0);
+      overflow-x: hidden;
+      color: #3a2a2a;
       text-align: center;
-      box-shadow: 0 0 40px rgba(255, 192, 203, 0.6);
-      animation: fadeIn 2s ease;
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: #e91e63;
-      margin-bottom: 1rem;
+      margin-top: 50px;
+      font-size: 2.5rem;
+      color: #d63384;
     }
 
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin: 0.8rem 0;
+    .letter {
+      max-width: 700px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    footer {
-      margin-top: 2rem;
-      font-size: 1rem;
-      opacity: 0.7;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    /* Floating hearts animation */
     .heart {
-      position: absolute;
-      color: #ff6b81;
-      font-size: 24px;
-      animation: floatUp 8s linear infinite;
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      color: red;
+      animation: fall linear forwards;
     }
 
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(1); opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    @keyframes fall {
+      from { transform: translateY(0) rotate(0deg); opacity: 1; }
+      to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .photo-card {
+      background: rgba(255,255,255,0.7);
+      border: 3px solid #ffb6c1;
+      border-radius: 15px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.8s;
+      overflow: hidden;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .tap-text {
+      color: #d63384;
+      font-weight: bold;
+      font-size: 1rem;
+      position: absolute;
+    }
+
+    .photo-card.show img {
+      display: block;
+    }
+
+    .photo-card.show .tap-text {
+      display: none;
+    }
+
+    audio {
+      margin-top: 20px;
+    }
+
+    .secret-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #d63384;
+      background: rgba(255,255,255,0.8);
+      border-radius: 10px;
+      padding: 10px 15px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #d63384;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #b0256a;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>To Raniya My Wife 💖</h1>
-    <p>This little page is just for you, because you mean the world to me.ye choti si effort sirf aur sirf meri jaan meri zindagi
+  <h1>💌 FOR MY LOVE 💌</h1>
+
+  <div class="letter">
+    <p id="message">—This little page is just for you, because you mean the world to me.ye choti si effort sirf aur sirf meri jaan meri zindagi
 meri raniya kayy liye hai i hope tumhen pasand ayegi. I love you so much meri jaan meri zindagi meri paaro. Mein tumhen itna dil se chahta hu meri jaan
 jisk tum andaza bhi nahi lagaa sakti, you mean the whole world to me my love. Pls mujhhay kabhhi bhi chhor kar mat jaana mein tumse shadi karunga in sha Allah
 tum sirf meri ho. Hamare rishte mein bohht maslay aaye boht uunch neech aayeen lekin ham Allah ka shukar hai hamesha aik sathh rahay. Kabhi himmat nahi haari
@@ -78,24 +134,75 @@ Alhamdullillah. Pls hamesha apna khayaal rakhna. I really really love you so muc
 4 saal hone ko aaye hain. Meri zindagi meri jaanu. Aaaj bhi mujhhay tumse wesi hi muhhabat hai jese October 2021 mein hui thi. Meri darling. Mujhse rootha 
 mat karo mein waqai mein boht pareshan hojata hu. Pls pls mat chhorna mera sathh mera waada hai tumse kay mein tumehen zindagi mein itni itni itni 
 sari khushiyan dunga jiska tum soch bhhi nahi sakogi. Mein tumhen itna khush rakhunga kay log misaalen denge hamari in sha Allah. For me you mean the whole
-world to me! ACHA SYBAU (jk)</p>
-    <p>Meri Dharkan ho tum <code>main</code> My Jaan .</p>
-    <p> I LOVE YOU💞</p>
-    <footer>— Forever yours, Ahmed</footer>
+world to me! ACHA SYBAU (jk)  YOURS AHMED RANA </p>
+
+    <audio id="bgMusic" controls loop>
+      <source src="music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="gallery">
+      <!-- Each card first shows 'Tap to show pic' -->
+      <div class="photo-card">
+        <span class="tap-text">Tap to show 💖</span>
+        <img src="pic1.jpg" alt="Picture 1">
+      </div>
+      <div class="photo-card">
+        <span class="tap-text">Tap to show 💖</span>
+        <img src="pic2.jpg" alt="Picture 2">
+      </div>
+      <div class="photo-card">
+        <span class="tap-text">Tap to show 💖</span>
+        <img src="pic3.jpg" alt="Picture 3">
+      </div>
+    </div>
+
+    <button id="revealBtn">Click the Heart 3 Times 💖</button>
+    <div id="secret1" class="secret-message">💞 You are my forever 💞</div>
+    <div id="secret2" class="secret-message">🌸 Every heartbeat whispers your name 🌸</div>
+    <div id="secret3" class="secret-message">💖 You complete my world 💖</div>
   </div>
 
   <script>
-    // floating hearts animation generator
-    const hearts = ["💖","💗","💞","💓","💘"];
-    for (let i = 0; i < 20; i++) {
-      let heart = document.createElement("div");
-      heart.className = "heart";
-      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDelay = Math.random() * 5 + "s";
-      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    // 💕 Floating hearts animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
       document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
     }
+    setInterval(createHeart, 300);
+
+    // 💌 Secret message unlock sequence
+    let clicks = 0;
+    const revealBtn = document.getElementById('revealBtn');
+    const secrets = [
+      document.getElementById('secret1'),
+      document.getElementById('secret2'),
+      document.getElementById('secret3')
+    ];
+
+    revealBtn.addEventListener('click', () => {
+      clicks++;
+      if (clicks <= 3) {
+        secrets[clicks - 1].style.display = 'block';
+        revealBtn.textContent = `💖 Secret ${clicks} Unlocked!`;
+      }
+      if (clicks === 3) {
+        revealBtn.textContent = '💖 All Secrets Unlocked! 💖';
+      }
+    });
+
+    // 📸 Tap to show pictures
+    const photoCards = document.querySelectorAll('.photo-card');
+    photoCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('show');
+      });
+    });
   </script>
 </body>
 </html>
