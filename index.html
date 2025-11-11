@@ -70,3 +70,145 @@
       color: #d63384;
       font-weight: bold;
       font-size: 1rem;
+      position: absolute;
+    }
+    .photo-card.show img {
+      display: block;
+    }
+    .photo-card.show .tap-text {
+      display: none;
+    }
+    audio {
+      margin-top: 20px;
+    }
+    .secret-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #d63384;
+      background: rgba(255,255,255,0.8);
+      border-radius: 10px;
+      padding: 10px 15px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      margin-top: 20px;
+      background: #d63384;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #b0256a;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 My Love Letter For You 💌</h1>
+
+  <div class="letter">
+    <p id="message">
+My dearest Raniya, 💖<br><br>
+This little page is just for you, because you mean the world to me. 
+Yeh choti si effort sirf aur sirf meri jaan, meri zindagi, meri Raniya ke liye hai. 
+I hope tumhein pasand aayegi. I love you so much meri jaan, meri zindagi, meri paaro. 💕<br><br>
+
+Main tumhein itna dil se chahta hoon meri jaan, jiska tum andaza bhi nahi laga sakti. 
+You mean the whole world to me, my love. 
+Please mujhe kabhi bhi chhor kar mat jaana — main tumse shaadi karunga, In sha Allah. 
+Tum sirf meri ho. 🌸<br><br>
+
+Hamare rishte mein bohot maslay aaye, bohot uunch‑neech aayi, 
+lekin hum Alhamdulillah hamesha ek saath rahe. 
+Kabhi himmat nahi haari — Alhamdulillah. 💞<br><br>
+
+Please hamesha apna khayal rakhna. I really, really love you so much. 
+You’re my everything. From <strong>19 December 2021</strong> till <strong>November 2025</strong>, 
+Alhamdulillah — 4 saal hone ko aaye hain, meri zindagi, meri jaanu. 
+Aaj bhi mujhe tumse waisi hi muhabbat hai jaise <strong>October 2021</strong> mein hui thi. 💗<br><br>
+
+Meri darling Raniya, mujhse rootha mat karo — 
+main waqai mein bohot pareshan ho jata hoon. 
+Please, please mat chhorna mera saath. 
+Mera waada hai tumse ke main tumhein zindagi mein itni, itni, itni sari khushiyan dunga 
+jiska tum soch bhi nahi sakti. 
+Main tumhein itna khush rakhunga ke log misaalein denge hamari, In sha Allah. 💞<br><br>
+
+For me, you mean the whole world to me!  
+Acha Sybau (jk 😄)
+    </p>
+
+    <audio id="bgMusic" controls loop>
+      <source src="music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="gallery">
+      <div class="photo-card">
+        <span class="tap-text">Tap to show 💖</span>
+        <img src="pic1.jpg.jpeg" alt="Picture 1">
+      </div>
+      <div class="photo-card">
+        <span class="tap-text">Tap to show 💖</span>
+        <img src="pic2.jpg.jpeg" alt="Picture 2">
+      </div>
+      <div class="photo-card">
+        <span class="tap-text">Tap to show 💖</span>
+        <img src="pic3.jpg.jpeg" alt="Picture 3">
+      </div>
+    </div>
+
+    <button id="revealBtn">Click the Heart 3 Times 💖</button>
+    <div id="secret1" class="secret-message">💞 You are my forever 💞</div>
+    <div id="secret2" class="secret-message">🌸 Every heartbeat whispers your name 🌸</div>
+    <div id="secret3" class="secret-message">💖 You complete my world 💖</div>
+  </div>
+
+  <script>
+    // 💕 Floating hearts animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    // 💌 Secret message unlock sequence
+    let clicks = 0;
+    const revealBtn = document.getElementById('revealBtn');
+    const secrets = [
+      document.getElementById('secret1'),
+      document.getElementById('secret2'),
+      document.getElementById('secret3')
+    ];
+
+    revealBtn.addEventListener('click', () => {
+      clicks++;
+      if (clicks <= 3) {
+        secrets[clicks - 1].style.display = 'block';
+        revealBtn.textContent = `💖 Secret ${clicks} Unlocked!`;
+      }
+      if (clicks === 3) {
+        revealBtn.textContent = '💖 All Secrets Unlocked! 💖';
+      }
+    });
+
+    // 📸 Tap to show pictures
+    const photoCards = document.querySelectorAll('.photo-card');
+    photoCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('show');
+      });
+    });
+  </script>
+</body>
+</html>
